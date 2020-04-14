@@ -62,18 +62,18 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
     /* modifier                     key        	        function        argument */
-	{ MODKEY|ShiftMask,             XK_Escape, 	        spawn,          SHCMD("dm_prompt \"Exit dwm?\" \"killall xinit\"") },
+    { MODKEY|ShiftMask,             XK_Escape, 	        spawn,          SHCMD("dm_prompt \"Exit dwm?\" \"killall xinit\"") },
     
     TAGKEYS(                        XK_1,                      	        0)
-	TAGKEYS(                        XK_2,                      	        1)
-	TAGKEYS(                        XK_3,                      	        2)
-	TAGKEYS(                        XK_4,                      	        3)
-	TAGKEYS(                        XK_5,                      	        4)
-	TAGKEYS(                        XK_6,                      	        5)
-	TAGKEYS(                        XK_7,                      	        6)
-	TAGKEYS(                        XK_8,                      	        7)
-	TAGKEYS(                        XK_9,                      	        8)
-	{ MODKEY,                       XK_0,      	        view,           {.ui = ~0 } },
+    TAGKEYS(                        XK_2,                      	        1)
+    TAGKEYS(                        XK_3,                      	        2)
+    TAGKEYS(                        XK_4,                      	        3)
+    TAGKEYS(                        XK_5,                      	        4)
+    TAGKEYS(                        XK_6,                      	        5)
+    TAGKEYS(                        XK_7,                      	        6)
+    TAGKEYS(                        XK_8,                      	        7)
+    TAGKEYS(                        XK_9,                      	        8)
+    { MODKEY,                       XK_0,      	        view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      	        tag,            {.ui = ~0 } },
 
 	{ MODKEY|ShiftMask,		        XK_BackSpace,	    spawn,	   	    SHCMD("dm_prompt \"Reboot computer?\" \"reboot\"") },
@@ -122,7 +122,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_j,               incnmaster,     {.i = +1} },
     { MODKEY,                       XK_k,               focusstack,     {.i = -1} },
     { MODKEY|ShiftMask,             XK_k,               incnmaster,     {.i = -1} },
-    { MODKEY,                       XK_l,               spawn,          {.f = +0.05} },
+    { MODKEY,                       XK_l,               setmfact,       {.f = +0.05} },
     //{ MODKEY|ShiftMask,             XK_l,               spawn,          SHCMD("") },
     //{ MODKEY,                       XK_semicolon,       spawn,          SHCMD("") },
     //{ MODKEY|ShiftMask,             XK_semicolon,       spawn,          SHCMD("") },
