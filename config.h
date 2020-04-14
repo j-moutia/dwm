@@ -61,47 +61,112 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
-	/* modifier                     key        	function        argument */
-	{ MODKEY,                       XK_d,      	spawn,          {.v = dmenucmd } },
-	{ MODKEY,             		XK_Return, 	spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      	togglebar,      {0} },
-	{ MODKEY,                       XK_j,      	focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      	focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_j,      	incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      	incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      	setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      	setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Tab,    	view,           {0} },
-	{ MODKEY,             		XK_q,      	killclient,     {0} },
-	{ MODKEY|ShiftMask,             XK_q,      	killclient,     {0} },
-	{ MODKEY,                       XK_t,      	setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      	setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      	setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  	setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  	togglefloating, {0} },
-	{ MODKEY,                       XK_0,      	view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      	tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  	focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, 	focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  	tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, 	tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_1,                      	0)
-	TAGKEYS(                        XK_2,                      	1)
-	TAGKEYS(                        XK_3,                      	2)
-	TAGKEYS(                        XK_4,                      	3)
-	TAGKEYS(                        XK_5,                      	4)
-	TAGKEYS(                        XK_6,                      	5)
-	TAGKEYS(                        XK_7,                      	6)
-	TAGKEYS(                        XK_8,                      	7)
-	TAGKEYS(                        XK_9,                      	8)
-	{ MODKEY|ShiftMask,             XK_Escape, 	spawn,          SHCMD("dm_prompt \"Exit dwm?\" \"killall xinit\"") },
-	{ MODKEY,			XK_F2,     	quit,	   	{0} },
-	{ MODKEY,			XK_F8,		spawn,		SHCMD("toggle_tpad") },
-	{ MODKEY|ShiftMask, 		XK_x,	   	spawn,	   	SHCMD("dm_prompt \"Shutdown computer?\" \"shutdown -h now\"") },
-	{ MODKEY|ShiftMask,		XK_BackSpace,	spawn,	   	SHCMD("dm_prompt \"Reboot computer?\" \"reboot\"") },
+    /* modifier                     key        	        function        argument */
+	{ MODKEY|ShiftMask,             XK_Escape, 	        spawn,          SHCMD("dm_prompt \"Exit dwm?\" \"killall xinit\"") },
+    
+    TAGKEYS(                        XK_1,                      	        0)
+	TAGKEYS(                        XK_2,                      	        1)
+	TAGKEYS(                        XK_3,                      	        2)
+	TAGKEYS(                        XK_4,                      	        3)
+	TAGKEYS(                        XK_5,                      	        4)
+	TAGKEYS(                        XK_6,                      	        5)
+	TAGKEYS(                        XK_7,                      	        6)
+	TAGKEYS(                        XK_8,                      	        7)
+	TAGKEYS(                        XK_9,                      	        8)
+	{ MODKEY,                       XK_0,      	        view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,             XK_0,      	        tag,            {.ui = ~0 } },
+
+	{ MODKEY|ShiftMask,		        XK_BackSpace,	    spawn,	   	    SHCMD("dm_prompt \"Reboot computer?\" \"reboot\"") },
+    { MODKEY,                       XK_Tab,             view,           {0} },
+
+    { MODKEY,                       XK_q,               killclient,     {0} },
+    //{ MODKEY|ShiftMask,             XK_q,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_w,               killclient,     {0} },
+    { MODKEY|ShiftMask,             XK_w,               spawn,          SHCMD("$BROWSER") },
+    //{ MODKEY,                       XK_e,               killclient,     {0} },
+    //{ MODKEY|ShiftMask,             XK_e,               spawn,          SHCMD("") },
+    { MODKEY,                       XK_r,               spawn,          SHCMD("st -e lf") },
+    { MODKEY|ShiftMask,             XK_r,               quit,           {1} },
+    { MODKEY,                       XK_t,               spawn,          {.v = &layouts[0]} },
+    { MODKEY|ShiftMask,             XK_t,               spawn,          {.v = &layouts[1]} },
+    { MODKEY,                       XK_y,               spawn,          {.v = &layouts[2]} },
+    //{ MODKEY|ShiftMask,             XK_y,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_u,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_u,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_i,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_i,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_o,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_o,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_p,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_p,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_bracketleft,     spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_bracketleft,     spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_bracketright,    spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_bracketright,    spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_backslash,       spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_backslash,       spawn,          SHCMD("") },
+
+    //{ MODKEY,                       XK_a,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_a,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_s,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_s,               spawn,          SHCMD("") },
+    { MODKEY,                       XK_d,               spawn,          {.v = dmenucmd} },
+    //{ MODKEY|ShiftMask,             XK_d,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_f,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_f,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_g,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_g,               spawn,          SHCMD("") },
+    { MODKEY,                       XK_h,               setmfact,       {.f = -0.05} },
+    //{ MODKEY|ShiftMask,             XK_h,               spawn,          SHCMD("") },
+    { MODKEY,                       XK_j,               focusstack,     {.i = +1} },
+    { MODKEY|ShiftMask,             XK_j,               incnmaster,     {.i = +1} },
+    { MODKEY,                       XK_k,               focusstack,     {.i = -1} },
+    { MODKEY|ShiftMask,             XK_k,               incnmaster,     {.i = -1} },
+    { MODKEY,                       XK_l,               spawn,          {.f = +0.05} },
+    //{ MODKEY|ShiftMask,             XK_l,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_semicolon,       spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_semicolon,       spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_apostrophe,      spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_apostrophe,      spawn,          SHCMD("") },
+	{ MODKEY,             		    XK_Return, 	        spawn,          {.v = termcmd } },
+    //{ MODKEY|ShiftMask,             XK_Return,          spawn,          SHCMD("") },
+
+    //{ MODKEY,                       XK_z,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_z,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_x,               spawn,          SHCMD("") },
+	{ MODKEY|ShiftMask, 		    XK_x,	   	        spawn,	   	    SHCMD("dm_prompt \"Shutdown computer?\" \"shutdown -h now\"") },
+    //{ MODKEY,                       XK_c,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_c,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_v,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_v,               spawn,          SHCMD("") },
+    { MODKEY,                       XK_b,               togglebar,      {0} },
+    //{ MODKEY|ShiftMask,             XK_b,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_n,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_n,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_m,               spawn,          SHCMD("") },
+    //{ MODKEY|ShiftMask,             XK_m,               spawn,          SHCMD("") },
+    { MODKEY,                       XK_comma,           focusmon,       {.i = -1} },
+    { MODKEY|ShiftMask,             XK_comma,           tagmon,         {.i = -1} },
+    { MODKEY,                       XK_period,          focusmon,       {.i = +1} },
+    { MODKEY|ShiftMask,             XK_period,          tagmon,         {.i = +1} },
+	{ MODKEY,                       XK_space,  	        setlayout,      {0} },
+	{ MODKEY|ShiftMask,             XK_space,  	        togglefloating, {0} },
+
+	//{ MODKEY,                       XK_F1,  	        spawn,          SHCMD("") },
+	{ MODKEY,                       XK_F2,  	        quit,           {1} },
+	//{ MODKEY,                       XK_F3,  	        spawn,          SHCMD("") },
+	//{ MODKEY,                       XK_F4,  	        spawn,          SHCMD("") },
+	//{ MODKEY,                       XK_F5,  	        spawn,          SHCMD("") },
+	//{ MODKEY,                       XK_F6,  	        spawn,          SHCMD("") },
+	//{ MODKEY,                       XK_F7,  	        spawn,          SHCMD("") },
+	{ MODKEY,                       XK_F8,  	        spawn,          SHCMD("toggle_tpad") },
+	//{ MODKEY,                       XK_F9,  	        spawn,          SHCMD("") },
+	//{ MODKEY,                       XK_F10,  	        spawn,          SHCMD("") },
+	//{ MODKEY,                       XK_F11,  	        spawn,          SHCMD("") },
+	//{ MODKEY,                       XK_F12,  	        spawn,          SHCMD("") },
 
 	// Special keys
-	{ 0, XF86XK_AudioMute,		spawn,		SHCMD("amixer set Master toggle") },
+	{ 0, XF86XK_AudioMute,		    spawn,		SHCMD("amixer set Master toggle") },
 	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("amixer set Master 5%+") },
 	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("amixer set Master 5%-") },
 };
