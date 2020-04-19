@@ -27,21 +27,26 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Brave",    NULL,       NULL,       1,       	    0,           -1 },
-	{ "st",	      NULL,       NULL,       2,	    0,		 -1 },
+	/* class        instance    title       tags mask       isfloating  monitor */
+	{ "Brave",      NULL,       NULL,       1,       	    0,          -1 },
+	{ "st",	        NULL,       NULL,       1 << 1,         0,		    -1 },
+    { "ncmpcpp",    NULL,       NULL,       1 << 3,         0,          -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
+
+#include "layouts.c"
 static const Layout layouts[] = {
-	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	/* symbol   arrange function */
+	{ "[]=",    tile },    /* first entry is default */
+	{ "[M]",    monocle },
+    { "HHH",    grid },
+
+	{ "><>",    NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -87,10 +92,10 @@ static Key keys[] = {
     //{ MODKEY|ShiftMask,             XK_e,               spawn,          SHCMD("") },
     { MODKEY,                       XK_r,               spawn,          SHCMD("st -e lf") },
     { MODKEY|ShiftMask,             XK_r,               quit,           {1} },
-    { MODKEY,                       XK_t,               spawn,          {.v = &layouts[0]} },
-    { MODKEY|ShiftMask,             XK_t,               spawn,          {.v = &layouts[1]} },
-    { MODKEY,                       XK_y,               spawn,          {.v = &layouts[2]} },
-    //{ MODKEY|ShiftMask,             XK_y,               spawn,          SHCMD("") },
+    { MODKEY,                       XK_t,               setlayout,      {.v = &layouts[0]} },
+    { MODKEY|ShiftMask,             XK_t,               setlayout,      {.v = &layouts[1]} },
+    { MODKEY,                       XK_y,               setlayout,      {.v = &layouts[2]} },
+    //{ MODKEY|ShiftMask,             XK_y,               setlayout,      {.v = &layouts[3]} },
     //{ MODKEY,                       XK_u,               spawn,          SHCMD("") },
     //{ MODKEY|ShiftMask,             XK_u,               spawn,          SHCMD("") },
     //{ MODKEY,                       XK_i,               spawn,          SHCMD("") },
@@ -149,7 +154,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_comma,           tagmon,         {.i = -1} },
     { MODKEY,                       XK_period,          focusmon,       {.i = +1} },
     { MODKEY|ShiftMask,             XK_period,          tagmon,         {.i = +1} },
-	{ MODKEY,                       XK_space,  	        setlayout,      {0} },
+	{ MODKEY,                       XK_space,  	        setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_space,  	        togglefloating, {0} },
 
 	//{ MODKEY,                       XK_F1,  	        spawn,          SHCMD("") },
@@ -166,9 +171,9 @@ static Key keys[] = {
 	//{ MODKEY,                       XK_F12,  	        spawn,          SHCMD("") },
 
 	// Special keys
-	{ 0, XF86XK_AudioMute,		    spawn,		SHCMD("amixer set Master toggle") },
-	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("amixer set Master 5%+") },
-	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("amixer set Master 5%-") },
+	{ 0, XF86XK_AudioMute,		    spawn,		SHCMD("pamixer --toggle") },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pamixer --allow-boost -i 3") },
+	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pamixer --allow-boost -d 3") },
 };
 
 /* button definitions */
