@@ -1,8 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
+#include "layouts.c"        // For layouts
+#include "movestack.c"      // For movestack function
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 6;        /* gaps between windows */
+static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -27,10 +30,8 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class        instance    title       tags mask       isfloating  monitor */
-	{ "Brave",      NULL,       NULL,       1,       	    0,          -1 },
-	{ "st",	        NULL,       NULL,       1 << 1,         0,		    -1 },
-    { "ncmpcpp",    NULL,       NULL,       1 << 3,         0,          -1 },
+	/* class                        instance    title                       tags mask   isfloating  monitor */
+	{ "Brave",                      NULL,       NULL,                       1,       	0,          -1 },
 };
 
 /* layout(s) */
@@ -38,8 +39,6 @@ static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
-
-#include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol   arrange function */
 	{ "[]=",    tile },    /* first entry is default */
@@ -97,9 +96,9 @@ static Key keys[] = {
     { MODKEY,                       XK_y,               setlayout,      {.v = &layouts[2]} },
     //{ MODKEY|ShiftMask,             XK_y,               setlayout,      {.v = &layouts[3]} },
     //{ MODKEY,                       XK_u,               spawn,          SHCMD("") },
-    //{ MODKEY|ShiftMask,             XK_u,               spawn,          SHCMD("") },
+    { MODKEY|ShiftMask,             XK_u,               incnmaster,     {.i = +1} },
     //{ MODKEY,                       XK_i,               spawn,          SHCMD("") },
-    //{ MODKEY|ShiftMask,             XK_i,               spawn,          SHCMD("") },
+    { MODKEY|ShiftMask,             XK_i,               incnmaster,     {.i = -1} },
     //{ MODKEY,                       XK_o,               spawn,          SHCMD("") },
     //{ MODKEY|ShiftMask,             XK_o,               spawn,          SHCMD("") },
     //{ MODKEY,                       XK_p,               spawn,          SHCMD("") },
@@ -124,9 +123,9 @@ static Key keys[] = {
     { MODKEY,                       XK_h,               setmfact,       {.f = -0.05} },
     //{ MODKEY|ShiftMask,             XK_h,               spawn,          SHCMD("") },
     { MODKEY,                       XK_j,               focusstack,     {.i = +1} },
-    { MODKEY|ShiftMask,             XK_j,               incnmaster,     {.i = +1} },
+    { MODKEY|ShiftMask,             XK_j,               movestack,      {.i = +1} },
     { MODKEY,                       XK_k,               focusstack,     {.i = -1} },
-    { MODKEY|ShiftMask,             XK_k,               incnmaster,     {.i = -1} },
+    { MODKEY|ShiftMask,             XK_k,               movestack,      {.i = -1} },
     { MODKEY,                       XK_l,               setmfact,       {.f = +0.05} },
     //{ MODKEY|ShiftMask,             XK_l,               spawn,          SHCMD("") },
     //{ MODKEY,                       XK_semicolon,       spawn,          SHCMD("") },
@@ -142,7 +141,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, 		    XK_x,	   	        spawn,	   	    SHCMD("dm_prompt \"Shutdown computer?\" \"shutdown -h now\"") },
     //{ MODKEY,                       XK_c,               spawn,          SHCMD("") },
     //{ MODKEY|ShiftMask,             XK_c,               spawn,          SHCMD("") },
-    //{ MODKEY,                       XK_v,               spawn,          SHCMD("") },
+    { MODKEY,                       XK_v,               spawn,          SHCMD("virt-manager") },
     //{ MODKEY|ShiftMask,             XK_v,               spawn,          SHCMD("") },
     { MODKEY,                       XK_b,               togglebar,      {0} },
     //{ MODKEY|ShiftMask,             XK_b,               spawn,          SHCMD("") },
