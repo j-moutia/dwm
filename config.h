@@ -102,7 +102,7 @@ static Key keys[] = {
     //{ MODKEY,                       XK_o,               spawn,          SHCMD("") },
     //{ MODKEY|ShiftMask,             XK_o,               spawn,          SHCMD("") },
     //{ MODKEY,                       XK_p,               spawn,          SHCMD("") },
-    //{ MODKEY|ShiftMask,             XK_p,               spawn,          SHCMD("") },
+    { MODKEY|ShiftMask,             XK_p,               spawn,          SHCMD("st -e bashtop") },
     //{ MODKEY,                       XK_bracketleft,     spawn,          SHCMD("") },
     //{ MODKEY|ShiftMask,             XK_bracketleft,     spawn,          SHCMD("") },
     //{ MODKEY,                       XK_bracketright,    spawn,          SHCMD("") },

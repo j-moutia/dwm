@@ -30,6 +30,7 @@ MODKEY+Shift   |  T  | Set layout - monocle
 MODKEY         |  Y  | Set layout - grid
 MODKEY+Shift   |  U  | Increase number of master windows
 MODKEY+Shift   |  I  | Decrease number of master windows
+MODKEY+Shift   |  P  | Run bashtop
 MODKEY         |  D  | Open dmenu
 MODKEY         |  H  | Decrease master window factor
 MODKEY         |  J  | Move focus up the stack
