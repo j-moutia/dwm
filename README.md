@@ -38,6 +38,7 @@ MODKEY+Shift   |  J  | Move window up the stack
 MODKEY         |  K  | Move focus down the stack
 MODKEY+Shift   |  K  | Move window down the stack
 MODKEY         |Enter| Open st window
+MODKEY         |  X  | Lock screen with slock
 MODKEY+Shift   |  X  | Shutdown computer
 MODKEY         |  V  | Open virt-manager
 MODKEY         |  B  | Toggle bar
