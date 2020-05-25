@@ -37,6 +37,7 @@ MODKEY         |  J  | Move focus up the stack
 MODKEY+Shift   |  J  | Move window up the stack
 MODKEY         |  K  | Move focus down the stack
 MODKEY+Shift   |  K  | Move window down the stack
+MODKEY         |  L  | Increase master window factor
 MODKEY         |Enter| Open st window
 MODKEY         |  X  | Lock screen with slock
 MODKEY+Shift   |  X  | Shutdown computer
