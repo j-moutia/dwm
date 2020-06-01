@@ -47,6 +47,8 @@ static const Layout layouts[] = {
 	{ "[]=",    tile },    /* first entry is default */
 	{ "[M]",    monocle },
     { "HHH",    grid },
+    { "|M|",    centeredmaster },
+    { ">M>",    centeredfloatingmaster },
 
 	{ "><>",    NULL },    /* no layout function means floating behavior */
 };
@@ -97,8 +99,8 @@ static Key keys[] = {
     { MODKEY,                       XK_t,               setlayout,      {.v = &layouts[0]} },
     { MODKEY|ShiftMask,             XK_t,               setlayout,      {.v = &layouts[1]} },
     { MODKEY,                       XK_y,               setlayout,      {.v = &layouts[2]} },
-    //{ MODKEY|ShiftMask,             XK_y,               setlayout,      {.v = &layouts[3]} },
-    //{ MODKEY,                       XK_u,               spawn,          SHCMD("") },
+    { MODKEY|ShiftMask,             XK_y,               setlayout,      {.v = &layouts[3]} },
+    { MODKEY,                       XK_u,               setlayout,      {.v = &layouts[4]} },
     { MODKEY|ShiftMask,             XK_u,               incnmaster,     {.i = +1} },
     //{ MODKEY,                       XK_i,               spawn,          SHCMD("") },
     { MODKEY|ShiftMask,             XK_i,               incnmaster,     {.i = -1} },
@@ -156,7 +158,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_comma,           tagmon,         {.i = -1} },
     { MODKEY,                       XK_period,          focusmon,       {.i = +1} },
     { MODKEY|ShiftMask,             XK_period,          tagmon,         {.i = +1} },
-	{ MODKEY,                       XK_space,  	        setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_space,  	        setlayout,      {.v = &layouts[5]} },
 	{ MODKEY|ShiftMask,             XK_space,  	        togglefloating, {0} },
 
 	//{ MODKEY,                       XK_F1,  	        spawn,          SHCMD("") },

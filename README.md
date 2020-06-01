@@ -5,6 +5,8 @@ My personal build of dwm.
 + uselessgaps
 + grid layout
 + movestack
++ centeredmaster
++ hide_vacant_tags
 
 ## Controls
 MODKEY = Windows Key
@@ -25,9 +27,11 @@ MODKEY+Shift   |BkSpc| Reboot computer
 MODKEY         |  Q  | Kill focused window
 MODKEY+Shift   |  W  | Open $BROWSER
 MODKEY         |  R  | Open lf file manager
-MODKEY         |  T  | Set layout - default
+MODKEY         |  T  | Set layout - tile
 MODKEY+Shift   |  T  | Set layout - monocle
 MODKEY         |  Y  | Set layout - grid
+MODKEY+Shift   |  Y  | Set layout - centered master
+MODKEY         |  U  | Set layout - centerd floating master
 MODKEY+Shift   |  U  | Increase number of master windows
 MODKEY+Shift   |  I  | Decrease number of master windows
 MODKEY+Shift   |  P  | Run bashtop
