@@ -31,9 +31,10 @@ MODKEY         |  T  | Set layout - tile
 MODKEY+Shift   |  T  | Set layout - monocle
 MODKEY         |  Y  | Set layout - grid
 MODKEY+Shift   |  Y  | Set layout - centered master
-MODKEY         |  U  | Set layout - centerd floating master
+MODKEY         |  U  | Set layout - centered floating master
 MODKEY+Shift   |  U  | Increase number of master windows
 MODKEY+Shift   |  I  | Decrease number of master windows
+MODKEY         |  P  | Pause mpc
 MODKEY+Shift   |  P  | Run bashtop
 MODKEY         |  D  | Open dmenu
 MODKEY         |  H  | Decrease master window factor
