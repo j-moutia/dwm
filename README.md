@@ -7,6 +7,7 @@ My personal build of dwm.
 + movestack
 + centeredmaster
 + hide_vacant_tags
++ swallow
 
 ## Controls
 MODKEY = Windows Key
@@ -48,6 +49,7 @@ MODKEY         |  X  | Lock screen with slock
 MODKEY+Shift   |  X  | Shutdown computer
 MODKEY         |  V  | Open virt-manager
 MODKEY         |  B  | Toggle bar
+MODKEY         |  N  | Open newsboat
 MODKEY         |  M  | Open ncmpcpp
 MODKEY         |  ,  | Focus previous monitor
 MODKEY+Shift   |  ,  | Tag previous monitor

@@ -7,6 +7,7 @@
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 = swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          =   {
@@ -33,8 +34,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class                        instance    title                       tags mask   isfloating  monitor */
-	{ "Brave",                      NULL,       NULL,                       1,       	0,          -1 },
+	/* class    instance            title   tags mask   isfloating  isterminal  noswallow   monitor */
+	{ "Brave",  "brave-browser",    NULL,   1,          0,          0,          -1,         -1 },
+    { "St",     "st",               NULL,   0,          0,          1,          0,          -1 },
+    //{ NULL,     "st",               "lf",   0,          0,          1,          0,          -1 },
 };
 
 /* layout(s) */
@@ -150,7 +153,7 @@ static Key keys[] = {
     //{ MODKEY|ShiftMask,             XK_v,               spawn,          SHCMD("") },
     { MODKEY,                       XK_b,               togglebar,      {0} },
     //{ MODKEY|ShiftMask,             XK_b,               spawn,          SHCMD("") },
-    //{ MODKEY,                       XK_n,               spawn,          SHCMD("") },
+    { MODKEY,                       XK_n,               spawn,          SHCMD("st -e newsboat") },
     //{ MODKEY|ShiftMask,             XK_n,               spawn,          SHCMD("") },
     { MODKEY,                       XK_m,               spawn,          SHCMD("st -e ncmpcpp") },
     //{ MODKEY|ShiftMask,             XK_m,               spawn,          SHCMD("") },
