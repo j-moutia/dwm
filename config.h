@@ -91,8 +91,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,		        XK_BackSpace,	    spawn,	   	    SHCMD("dm_prompt \"Reboot computer?\" \"reboot\"") },
     { MODKEY,                       XK_Tab,             view,           {0} },
 
-    { MODKEY,                       XK_q,               killclient,     {0} },
-    //{ MODKEY|ShiftMask,             XK_q,               spawn,          SHCMD("") },
+    //{ MODKEY,                       XK_q,               killclient,     {0} },
+    { MODKEY|ShiftMask,             XK_q,               killclient,     {0} },
     //{ MODKEY,                       XK_w,               killclient,     {0} },
     { MODKEY|ShiftMask,             XK_w,               spawn,          SHCMD("$BROWSER") },
     //{ MODKEY,                       XK_e,               killclient,     {0} },

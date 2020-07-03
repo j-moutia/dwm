@@ -25,7 +25,7 @@ MODKEY binding | Key | Effect
 ---------------|:---:|-------------
 MODKEY+Shift   | Esc | Exit dwm
 MODKEY+Shift   |BkSpc| Reboot computer
-MODKEY         |  Q  | Kill focused window
+MODKEY+Shift   |  Q  | Kill focused window
 MODKEY+Shift   |  W  | Open $BROWSER
 MODKEY         |  R  | Open lf file manager
 MODKEY         |  T  | Set layout - tile
