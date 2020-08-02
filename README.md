@@ -38,6 +38,7 @@ MODKEY+Shift   |  I  | Decrease number of master windows
 MODKEY         |  P  | Pause mpc
 MODKEY+Shift   |  P  | Run bashtop
 MODKEY         |  D  | Open dmenu
+MODKEY+Shift   |  F  | Toggle fullscreen
 MODKEY         |  H  | Decrease master window factor
 MODKEY         |  J  | Move focus up the stack
 MODKEY+Shift   |  J  | Move window up the stack

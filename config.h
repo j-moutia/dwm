@@ -126,7 +126,7 @@ static Key keys[] = {
     { MODKEY,                       XK_d,               spawn,          {.v = dmenucmd} },
     //{ MODKEY|ShiftMask,             XK_d,               spawn,          SHCMD("") },
     //{ MODKEY,                       XK_f,               spawn,          SHCMD("") },
-    //{ MODKEY|ShiftMask,             XK_f,               spawn,          SHCMD("") },
+    { MODKEY|ShiftMask,             XK_f,               togglefullscr,  {0} },
     //{ MODKEY,                       XK_g,               spawn,          SHCMD("") },
     //{ MODKEY|ShiftMask,             XK_g,               spawn,          SHCMD("") },
     { MODKEY,                       XK_h,               setmfact,       {.f = -0.05} },
