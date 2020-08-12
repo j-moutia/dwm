@@ -27,6 +27,7 @@ MODKEY+Shift   | Esc | Exit dwm
 MODKEY+Shift   |BkSpc| Reboot computer
 MODKEY+Shift   |  Q  | Kill focused window
 MODKEY+Shift   |  W  | Open $BROWSER
+MODKEY+Shift   |  E  | Open Thunderbird
 MODKEY         |  R  | Open lf file manager
 MODKEY         |  T  | Set layout - tile
 MODKEY+Shift   |  T  | Set layout - monocle

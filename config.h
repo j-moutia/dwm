@@ -35,9 +35,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class    instance            title   tags mask   isfloating  isterminal  noswallow   monitor */
-	{ "Brave",  "brave-browser",    NULL,   1,          0,          0,          -1,         -1 },
-    { "St",     "st",               NULL,   0,          0,          1,          0,          -1 },
+	/* class            instance            title   tags mask   isfloating  isterminal  noswallow   monitor */
+	{ "Brave",          "brave-browser",    NULL,   1,          0,          0,          -1,         -1 },
+    { "Thunderbird",    "Mail",             NULL,   1 << 8,     0,          0,          -1,         -1 },
+    { "St",             "st",               NULL,   0,          0,          1,          0,          -1 },
     //{ NULL,     "st",               "lf",   0,          0,          1,          0,          -1 },
 };
 
@@ -97,7 +98,7 @@ static Key keys[] = {
     //{ MODKEY,                       XK_w,               killclient,     {0} },
     { MODKEY|ShiftMask,             XK_w,               spawn,          SHCMD("$BROWSER") },
     //{ MODKEY,                       XK_e,               killclient,     {0} },
-    //{ MODKEY|ShiftMask,             XK_e,               spawn,          SHCMD("") },
+    { MODKEY|ShiftMask,             XK_e,               spawn,          SHCMD("thunderbird") },
     { MODKEY,                       XK_r,               spawn,          SHCMD("st -e lf") },
     { MODKEY|ShiftMask,             XK_r,               quit,           {1} },
     { MODKEY,                       XK_t,               setlayout,      {.v = &layouts[0]} },
