@@ -38,6 +38,7 @@ MODKEY+Shift   |  U  | Increase number of master windows
 MODKEY+Shift   |  I  | Decrease number of master windows
 MODKEY         |  P  | Pause mpc
 MODKEY+Shift   |  P  | Run bashtop
+MODKEY         |  A  | Open XCalc
 MODKEY         |  D  | Open dmenu
 MODKEY+Shift   |  F  | Toggle fullscreen
 MODKEY         |  H  | Decrease master window factor
