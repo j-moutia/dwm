@@ -148,7 +148,7 @@ static Key keys[] = {
 
     //{ MODKEY,                       XK_z,               spawn,          SHCMD("") },
     //{ MODKEY|ShiftMask,             XK_z,               spawn,          SHCMD("") },
-    { MODKEY,                       XK_x,               spawn,          SHCMD("slock -m \"$(figlet \"Locked\")\"") },
+    { MODKEY,                       XK_x,               spawn,          SHCMD("slock -m \"$(figlet -f caligraphy < ~/.cache/lockmess)\"") },
 	{ MODKEY|ShiftMask, 		    XK_x,	   	        spawn,	   	    SHCMD("dm_prompt \"Shutdown computer?\" \"shutdown -h now\"") },
     //{ MODKEY,                       XK_c,               spawn,          SHCMD("") },
     //{ MODKEY|ShiftMask,             XK_c,               spawn,          SHCMD("") },
