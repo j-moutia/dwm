@@ -37,6 +37,8 @@ static const Rule rules[] = {
 	 */
 	/* class            instance            title           tags mask   isfloating  isterminal  noswallow   monitor */
 	{ "Brave",          "brave-browser",    NULL,           1,          0,          0,          -1,         -1 },
+    { "IceCat",         "Navigator",        NULL,           1,          0,          0,          -1,         -1 },
+    { "firefox",        "Navigator",        NULL,           1,          0,          0,          -1,         -1 },
     { "Thunderbird",    "Mail",             NULL,           1 << 8,     0,          0,          -1,         -1 },
     { "St",             "st",               NULL,           0,          0,          1,          0,          -1 },
     { "XCalc",          "xcalc",            "Calculator",   0,          1,          0,          -1          -1 },
@@ -44,7 +46,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.55;  /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
