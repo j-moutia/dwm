@@ -11,10 +11,10 @@ static const int swallowfloating    = 0;        /* 1 = swallow floating windows 
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          =   {
-                                            "Droid Sans Mono:pixelsize=10:antialias=true:autohint=true",    /* Regular font */
+                                            "Hack Nerd Font:pixelsize=10:antialias=true:autohint=true",      /* Regular font */
                                             "Joypixels:pixelsize=10:antialias=true:autohint=true"           /* Color emojis */
                                         };
-static const char dmenufont[]       = "Droid Sans Mono:pixelsize=10:antialias=true:autohint=true";
+static const char dmenufont[]       = "Hack Nerd Font:pixelsize=10:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -36,13 +36,12 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class            instance            title           tags mask   isfloating  isterminal  noswallow   monitor */
-	{ "Brave",          "brave-browser",    NULL,           1,          0,          0,          -1,         -1 },
-    { "IceCat",         "Navigator",        NULL,           1,          0,          0,          -1,         -1 },
-    { "firefox",        "Navigator",        NULL,           1,          0,          0,          -1,         -1 },
+    { "LibreWolf",      "Navigator",        "LibreWolf",    1,          0,          0,          -1,         -1 },
     { "Thunderbird",    "Mail",             NULL,           1 << 8,     0,          0,          -1,         -1 },
     { "St",             "st",               NULL,           0,          0,          1,          0,          -1 },
-    { "XCalc",          "xcalc",            "Calculator",   0,          1,          0,          -1          -1 },
-    //{ NULL,     "st",               "lf",   0,          0,          1,          0,          -1 },
+    { "Alacritty",      "Alacritty",        NULL,           0,          0,          1,          0,          -1 },
+    { "XCalc",          "xcalc",            "Calculator",   0,          1,          0,          -1,         -1 },
+    { "battle.net.exe", "battle.net.exe",   "Battle.net",   0,          1,          0,          -1,         -1 },
 };
 
 /* layout(s) */
@@ -51,7 +50,7 @@ static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
-	/* symbol   arrange function */
+	/* symbol   rrange function */
 	{ "[]=",    tile },    /* first entry is default */
 	{ "[M]",    monocle },
     { "HHH",    grid },
@@ -154,7 +153,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, 		    XK_x,	   	        spawn,	   	    SHCMD("dm_prompt \"Shutdown computer?\" \"shutdown -h now\"") },
     //{ MODKEY,                       XK_c,               spawn,          SHCMD("") },
     //{ MODKEY|ShiftMask,             XK_c,               spawn,          SHCMD("") },
-    { MODKEY,                       XK_v,               spawn,          SHCMD("virt-manager") },
+    { MODKEY,                       XK_v,               spawn,          SHCMD("virtualbox") },
     //{ MODKEY|ShiftMask,             XK_v,               spawn,          SHCMD("") },
     { MODKEY,                       XK_b,               togglebar,      {0} },
     //{ MODKEY|ShiftMask,             XK_b,               spawn,          SHCMD("") },
@@ -184,8 +183,8 @@ static Key keys[] = {
 
 	// Special keys
 	{ 0, XF86XK_AudioMute,		    spawn,		SHCMD("pamixer --toggle") },
-	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pamixer --allow-boost -i 3") },
-	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pamixer --allow-boost -d 3") },
+	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pamixer --allow-boost -i 3 && pkill -RTMIN+2 dwmblocks") },
+	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pamixer --allow-boost -d 3 && pkill -RTMIN+2 dwmblocks") },
 };
 
 /* button definitions */
